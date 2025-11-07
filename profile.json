@@ -1,0 +1,11 @@
+{
+    "profile":{
+        "budget": 0,
+        "income": 0,
+        "savings": 0,
+        "goal": 0,
+        "expenses": []
+    }
+}
+
+
