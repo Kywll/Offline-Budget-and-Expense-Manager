@@ -1,15 +1,19 @@
 import datetime
+from profile import Profile
 from utils import Util
 
 class Manager():
+    profile = Profile()
     util = Util()
-    time = datetime.datetime.now()
+    current_time = datetime.datetime.now()
 
-    def insert_income(self):
-        pass
+    def collect_income(self, profile, current_time):
+        for i in range(len(profile.income)):
+            if profile.income[i]["date"] > current_time and profile.income[i]["collected"] == "false":
+                profile.income["budget"] += profile.income[i]["amount"]
     def insert_savings(self):
         pass
-    def pay_trasaction(self):
+    def pay_expense(self):
         pass
     
     def priorty_expense(self):

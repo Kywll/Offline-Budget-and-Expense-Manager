@@ -10,8 +10,8 @@ from profile import Profile
 from manager import Manager
 import json
 
-MyProfile = Profile()
+profile = Profile()
 
-MyProfile.show_details()
+profile.show_details()
 
 manager = Manager()
