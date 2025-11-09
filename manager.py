@@ -9,8 +9,9 @@ class Manager():
 
     def collect_income(self, profile, current_time):
         for i in range(len(profile.income)):
-            if profile.income[i]["date"] > current_time and profile.income[i]["collected"] == "false":
+            if profile.income[i]["date"] > current_time and profile.income[i]["collected"] == False:
                 profile.income["budget"] += profile.income[i]["amount"]
+                profile.income["collected"] = True
     def insert_savings(self):
         pass
     def pay_expense(self):
