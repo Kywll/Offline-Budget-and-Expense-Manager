@@ -14,9 +14,10 @@ class Manager():
                 profile.income["collected"] = True
     def insert_savings(self):
         pass
-    def pay_expense(self):
-        pass
-    
+    def pay_expense(self, profile, index):
+        if profile.expense[index]["paid"] == False:
+            profile.expense[index]["paid"] = True
+            budget -= profile.expense[index]["price"]
     def priorty_expense(self):
         pass
     def recommended_savings(self):
