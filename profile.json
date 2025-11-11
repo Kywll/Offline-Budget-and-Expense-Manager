@@ -1,35 +1,8 @@
 {
     "profile":{
         "budget": 0,
-        "income": [{"id": 0, "date": "current date", "amount":0, "collected": true}],
         "savings": 0,
-        "goal": 0,
-        "expenses": [
-            {
-                "id": 0,
-                "date": 0,
-                "price": 0,
-                "deadline": 0,
-                "type": "primary",
-                "paid": true
-            },
-            {
-                "id": 1,
-                "date": 0,
-                "price": 0,
-                "deadline": 0,
-                "type": "secondary",
-                "paid": true
-            },
-            {
-                "id": 2,
-                "date": 0,
-                "price": 0,
-                "deadline": 0,
-                "type": "bills",
-                "paid": true
-            }
-        ]
+        "goal": 0
     }
 }
 

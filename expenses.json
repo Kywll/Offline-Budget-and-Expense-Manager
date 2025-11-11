@@ -1,0 +1,32 @@
+        
+{
+    "expenses": [
+        {
+            "id": 0,
+            "name": "Food",
+            "date": 0,
+            "price": 0,
+            "deadline": 0,
+            "priority": 1,
+            "paid": true
+        },
+        {
+            "id": 1,
+            "name": "Clothes",
+            "date": 0,
+            "price": 0,
+            "deadline": 0,
+            "priority": 2,
+            "paid": true
+        },
+        {
+            "id": 2,
+            "name": "Cellphone",
+            "date": 0,
+            "price": 0,
+            "deadline": 0,
+            "priority": 3,
+            "paid": true
+        }
+    ]
+}

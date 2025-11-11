@@ -12,12 +12,18 @@ class Manager():
             if profile.income[i]["date"] > current_time and profile.income[i]["collected"] == False:
                 profile.income["budget"] += profile.income[i]["amount"]
                 profile.income["collected"] = True
-    def insert_savings(self):
-        pass
+
+    def insert_savings(self, profile, amount):
+        profile.savings = amount
+
     def pay_expense(self, profile, index):
         if profile.expense[index]["paid"] == False:
             profile.expense[index]["paid"] = True
             budget -= profile.expense[index]["price"]
+
+    def record_transaction(self, profile, data):
+        pass
+
     def priorty_expense(self):
         pass
     def recommended_savings(self):
