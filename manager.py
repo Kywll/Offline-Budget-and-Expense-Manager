@@ -1,3 +1,4 @@
+import json
 import datetime
 from profile import Profile
 from utils import Util
@@ -7,22 +8,25 @@ class Manager():
     util = Util()
     current_time = datetime.datetime.now()
 
-    def collect_income(self, profile, current_time):
-        for i in range(len(profile.income)):
-            if profile.income[i]["date"] > current_time and profile.income[i]["collected"] == False:
-                profile.income["budget"] += profile.income[i]["amount"]
-                profile.income["collected"] = True
+    
+
+    def collect_income(self, income, current_time, profile):
+        for i in range(len(income)):
+            if income[i]["expected_date"] > current_time and income[i]["collected"] == False:
+                profile.budget += income[i]["amount"]
+                income[i]["collected"] = True
 
     def insert_savings(self, profile, amount):
         profile.savings = amount
 
-    def pay_expense(self, profile, index):
-        if profile.expense[index]["paid"] == False:
-            profile.expense[index]["paid"] = True
-            budget -= profile.expense[index]["price"]
+    def pay_expense(self, expense, profile):
+        if expense["paid"] == False:
+            expense["paid"] = True
+            profile.budget -= expense["price"]
 
-    def record_transaction(self, profile, data):
-        pass
+    def record_transaction(self, data, transactions):
+        
+        transactions["data"] = data
 
     def priorty_expense(self):
         pass

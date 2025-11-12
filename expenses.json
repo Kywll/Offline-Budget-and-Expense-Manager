@@ -8,7 +8,9 @@
             "price": 0,
             "deadline": 0,
             "priority": 1,
-            "paid": true
+            "paid": true,
+            "frequency": "Daily"
+            
         },
         {
             "id": 1,
@@ -17,7 +19,8 @@
             "price": 0,
             "deadline": 0,
             "priority": 2,
-            "paid": true
+            "paid": true,
+            "frequency": "Weekly"
         },
         {
             "id": 2,
@@ -26,7 +29,8 @@
             "price": 0,
             "deadline": 0,
             "priority": 3,
-            "paid": true
+            "paid": true,
+            "frequency": "Monthly"
         }
     ]
 }
