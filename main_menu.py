@@ -14,13 +14,13 @@ profile = Profile()
 profile.show_details()
 
 def cli():
-    print("Choose the number of the action you want to take")
-    print("1.Show Transactions")
-    print("2.Show Expenses")
-    print("3.Show Full Income")
-    print("4.Insert Expense")
-    print("5.Insert Income")
-    print("6. ")
+    print("Choose an action")
+    print("1.View Summary")
+    print("2.Manage Expenses")
+    print("3.Manage Income")
+    print("4.Transaction & Reports")
+    print("5.Analytics & Insights")
+    print("6.Settings & Utilities")
     print("0.Exit")
 
 
