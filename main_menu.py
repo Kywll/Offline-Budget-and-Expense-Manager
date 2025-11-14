@@ -14,7 +14,7 @@ profile = Profile()
 profile.show_details()
 
 def cli():
-    print("Choose an action")
+    choice = input("Choose an action: ")
     print("1.View Summary")
     print("2.Manage Expenses")
     print("3.Manage Income")
