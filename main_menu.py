@@ -13,9 +13,54 @@ profile = Profile()
 
 profile.show_details()
 
-def cli():
+def settings_menu():
     while True:
-        cli()
+        print("\n=== SETTINGS MENU ===")
+        print("1. Change Currency")
+        print("2. Toggle Dark Mode")
+        print("3. Reset Data")
+        print("0. Back to Main Menu")
+
+        choice = input("Choose an action: ").strip()
+
+        if choice == "1":
+            print("Changing currency...")
+        elif choice == "2":
+            print("Dark mode toggled!")
+        elif choice == "3":
+            print("Resetting data...")
+        elif choice == "0":
+            break
+        else:
+            print("Invalid choice. Try again.")
+
+
+def expenses_menu():
+    while True:
+        print("\n=== EXPENSES MENU ===")
+        print("1. Add Expense")
+        print("2. View Expenses")
+        print("3. Edit Expense")
+        print("4. Delete Expense")
+        print("0. Back to Main Menu")
+
+        choice = input("Choose an action: ").strip()
+
+        if choice == "1":
+            print("Adding expense...")
+        elif choice == "2":
+            print("Listing expenses...")
+        elif choice == "3":
+            print("Editing expense...")
+        elif choice == "4":
+            print("Deleting expense...")
+        elif choice == "0":
+            break
+        else:
+            print("Invalid choice. Try again.")
+
+def main_menu():
+    while True:
         print("\n=== MAIN MENU ===")
         print("1. View Summary")
         print("2. Manage Expenses")
@@ -25,28 +70,28 @@ def cli():
         print("6. Settings & Utilities")
         print("0. Exit")
 
-        choice = input("Choose an action: ")
-        
+        choice = input("Choose an action: ").strip()
+        '''
         if choice == "1":
-            print("Viewing summary...")
+            view_summary()
         elif choice == "2":
-            print("Managing expenses...")
+            expenses_menu()
         elif choice == "3":
-            print("Managing income...")
+            income_menu()
         elif choice == "4":
-            print("Transaction & reports...")
+            transaction_menu()
         elif choice == "5":
-            print("Analytics & insights...")
+            analytics_menu()
         elif choice == "6":
-            print("Settings...")
+            settings_menu()
         elif choice == "0":
             print("Goodbye!")
             break
         else:
-            print("Invalid option. Try again.")
+            print("Invalid choice. Try again.")
+        '''
 
-
-cli()
+main_menu()
 
 
 manager = Manager()
