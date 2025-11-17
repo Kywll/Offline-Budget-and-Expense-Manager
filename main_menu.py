@@ -59,6 +59,58 @@ def expenses_menu():
         else:
             print("Invalid choice. Try again.")
 
+def income_menu():
+    while True:
+        print("\n=== INCOME MENU ===")
+        print("1. Add Income")
+        print("2. View Income Records")
+        print("3. Edit Income")
+        print("4. Delete Income")
+        print("0. Back to Main Menu")
+
+        choice = input("Choose an action: ").strip()
+
+        if choice == "1":
+            print("Adding income...")
+        elif choice == "2":
+            print("Viewing income records...")
+        elif choice == "3":
+            print("Editing income...")
+        elif choice == "4":
+            print("Deleting income...")
+        elif choice == "0":
+            break
+        else:
+            print("Invalid choice. Try again.")
+
+def transaction_menu():
+    while True:
+        print("\n=== TRANSACTIONS & REPORTS MENU ===")
+        print("1. View All Transactions")
+        print("2. Filter Transactions (by date/category/type)")
+        print("3. Monthly Report")
+        print("4. Annual Report")
+        print("5. Export Report")
+        print("0. Back to Main Menu")
+
+        choice = input("Choose an action: ").strip()
+
+        if choice == "1":
+            print("Showing all transactions...")
+        elif choice == "2":
+            print("Filtering transactions...")
+        elif choice == "3":
+            print("Generating monthly report...")
+        elif choice == "4":
+            print("Generating annual report...")
+        elif choice == "5":
+            print("Exporting report...")
+        elif choice == "0":
+            break
+        else:
+            print("Invalid choice. Try again.")
+
+
 def main_menu():
     while True:
         print("\n=== MAIN MENU ===")
