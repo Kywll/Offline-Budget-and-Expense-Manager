@@ -110,6 +110,32 @@ def transaction_menu():
         else:
             print("Invalid choice. Try again.")
 
+def analytics_menu():
+    while True:
+        print("\n=== ANALYTICS & INSIGHTS MENU ===")
+        print("1. Expense Breakdown (by category)")
+        print("2. Income vs Expense Comparison")
+        print("3. Monthly Trends")
+        print("4. Highest/Lowest Spending")
+        print("5. Savings Insights")
+        print("0. Back to Main Menu")
+
+        choice = input("Choose an action: ").strip()
+
+        if choice == "1":
+            print("Showing expense breakdown by category...")
+        elif choice == "2":
+            print("Comparing income vs expenses...")
+        elif choice == "3":
+            print("Generating monthly trends...")
+        elif choice == "4":
+            print("Analyzing highest/lowest spending...")
+        elif choice == "5":
+            print("Showing savings insights...")
+        elif choice == "0":
+            break
+        else:
+            print("Invalid choice. Try again.")
 
 def main_menu():
     while True:
