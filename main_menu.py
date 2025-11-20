@@ -137,18 +137,13 @@ def analytics_menu():
         else:
             print("Invalid choice. Try again.")
 
-def view_summary():
+def view_summary(profile):
     print("\n=== SUMMARY OVERVIEW ===")
 
-    total_income = 0
-    total_expenses = 0
-    total_transactions = 0
-    savings = total_income - total_expenses
-
-    print(f"Total Income:       {total_income}")
-    print(f"Total Expenses:     {total_expenses}")
-    print(f"Net Savings:        {savings}")
-    print(f"Transactions Logged:{total_transactions}")
+    profile.show_details()
+    profile.show_transactions()
+ 
+    #savings = total_income - total_expenses
 
     input("\nPress Enter to return to the main menu...")
 
