@@ -11,8 +11,6 @@ import json
 
 profile = Profile()
 
-profile.show_details()
-
 def settings_menu():
     while True:
         print("\n=== SETTINGS MENU ===")
@@ -35,7 +33,7 @@ def settings_menu():
             print("Invalid choice. Try again.")
 
 
-def expenses_menu():
+def expenses_menu(profile):
     while True:
         print("\n=== EXPENSES MENU ===")
         print("1. Add Expense")
@@ -59,7 +57,7 @@ def expenses_menu():
         else:
             print("Invalid choice. Try again.")
 
-def income_menu():
+def income_menu(profile):
     while True:
         print("\n=== INCOME MENU ===")
         print("1. Add Income")
@@ -83,7 +81,7 @@ def income_menu():
         else:
             print("Invalid choice. Try again.")
 
-def transaction_menu():
+def transaction_menu(profile):
     while True:
         print("\n=== TRANSACTIONS & REPORTS MENU ===")
         print("1. View All Transactions")
@@ -110,7 +108,7 @@ def transaction_menu():
         else:
             print("Invalid choice. Try again.")
 
-def analytics_menu():
+def analytics_menu(profile):
     while True:
         print("\n=== ANALYTICS & INSIGHTS MENU ===")
         print("1. Expense Breakdown (by category)")
