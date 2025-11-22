@@ -36,7 +36,7 @@ class Manager():
             "price": price,
             "deadline": deadline,
             "priority": priority,
-            "paid": paid,
+            "paid": False,
             "frequency": frequency
         })
 
