@@ -28,6 +28,19 @@ class Manager():
         
         transactions["data"] = data
 
+    def add_expense(self, id, name, price, deadline, priority, frequency):
+        self.profile.expenses.append({
+            "id": id,
+            "name": name,
+            "date": self.current_time,
+            "price": price,
+            "deadline": deadline,
+            "priority": priority,
+            "paid": paid,
+            "frequency": frequency
+        })
+
+
     def priorty_expense(self):
         pass
     def recommended_savings(self):
