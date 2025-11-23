@@ -1,6 +1,11 @@
 {
     "income": [
-        {"id": 0, "expected_date": "current date", "amount":0, "collected": true}
+        {
+            "id": 0, 
+            "expected_date": "current date", 
+            "amount":0, 
+            "collected": true
+        }
     
     
     

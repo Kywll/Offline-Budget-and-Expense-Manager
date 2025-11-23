@@ -40,6 +40,14 @@ class Manager():
             "frequency": frequency
         })
 
+    def add_income(self, id, amount):
+        self.profile.income.append({
+            "id": id, 
+            "expected_date": self.current_time, 
+            "amount": amount, 
+            "collected": False
+        })
+
 
     def priorty_expense(self):
         pass
