@@ -46,8 +46,10 @@ def expenses_menu(profile):
 
         if choice == "1":
             print("Adding expense...")
+            manager.add_expense()
         elif choice == "2":
             print("Listing expenses...")
+            profile.show_expenses()
         elif choice == "3":
             print("Editing expense...")
         elif choice == "4":
@@ -70,8 +72,10 @@ def income_menu(profile):
 
         if choice == "1":
             print("Adding income...")
+            manager.add_income()
         elif choice == "2":
             print("Viewing income records...")
+            profile.show_income()
         elif choice == "3":
             print("Editing income...")
         elif choice == "4":
@@ -85,6 +89,7 @@ def transaction_menu(profile):
     while True:
         print("\n=== TRANSACTIONS & REPORTS MENU ===")
         print("1. View All Transactions")
+        profile.show_transactions()
         print("2. Filter Transactions (by date/category/type)")
         print("3. Monthly Report")
         print("4. Annual Report")

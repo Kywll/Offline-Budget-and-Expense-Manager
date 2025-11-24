@@ -8,8 +8,6 @@ class Manager():
     util = Util()
     current_time = datetime.datetime.now()
 
-    
-
     def collect_income(self, income, current_time, profile):
         for i in range(len(income)):
             if income[i]["expected_date"] > current_time and income[i]["collected"] == False:
@@ -28,7 +26,7 @@ class Manager():
         
         transactions["data"] = data
 
-    def add_expense(self, id, name, price, deadline, priority, frequency):
+    def add_expense(self, id, name, price, deadline, priority, frequency, is_paid=False):
         self.profile.expenses.append({
             "id": id,
             "name": name,
@@ -36,7 +34,7 @@ class Manager():
             "price": price,
             "deadline": deadline,
             "priority": priority,
-            "paid": False,
+            "paid": is_paid,
             "frequency": frequency
         })
 
