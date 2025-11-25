@@ -84,6 +84,7 @@ def income_menu(profile):
             break
         else:
             print("Invalid choice. Try again.")
+            
 
 def transaction_menu(profile):
     while True:
@@ -145,6 +146,8 @@ def view_summary(profile):
 
     profile.show_details()
     profile.show_transactions()
+    profile.show_income()
+    profile.show_expenses()
  
     #savings = total_income - total_expenses
 
