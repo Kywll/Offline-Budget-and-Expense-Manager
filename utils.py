@@ -2,9 +2,9 @@ class Util():
 
 
     def search(self, object, data, target):
-        for i in range(len(object[data])):
-            if object[data][i] == target:
-                return object[data][i]
+        for i in range(len(object)):
+            if object[i][data] == target:
+                return object[i][data]
         return None
         
     def insert(self):
