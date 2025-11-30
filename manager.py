@@ -14,7 +14,7 @@ class Manager():
                 profile.budget += income[i]["amount"]
                 income[i]["collected"] = True
 
-    def insert_savings(self, profile, amount):
+    def update_savings(self, profile, amount):
         profile.savings = amount
 
     def pay_expense(self, expense, profile):
