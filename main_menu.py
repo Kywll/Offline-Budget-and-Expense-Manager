@@ -101,6 +101,7 @@ def transaction_menu(profile):
 
         if choice == "1":
             print("Showing all transactions...")
+            profile.show_transactions()
         elif choice == "2":
             print("Filtering transactions...")
         elif choice == "3":
