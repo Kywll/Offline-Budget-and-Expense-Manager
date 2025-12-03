@@ -7,7 +7,6 @@ transactions, search_sort, summary, reports, cli, utils(helper module), Analytic
 
 from profile import Profile
 from manager import Manager
-import json
 
 profile = Profile()
 
@@ -52,6 +51,7 @@ def expenses_menu(profile):
             profile.show_expenses()
         elif choice == "3":
             print("Editing expense...")
+            manager.util.update()
         elif choice == "4":
             print("Deleting expense...")
         elif choice == "0":
@@ -78,6 +78,7 @@ def income_menu(profile):
             profile.show_income()
         elif choice == "3":
             print("Editing income...")
+            manager.util.update()
         elif choice == "4":
             print("Deleting income...")
         elif choice == "0":

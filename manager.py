@@ -47,7 +47,7 @@ class Manager():
         })
     
     def delete_income(self, object, data, target):
-        Util.delete(object, data, target)
+        self.util.delete(object, data, target)
 
 
     def priorty_expense(self):
