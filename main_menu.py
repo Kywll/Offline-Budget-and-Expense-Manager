@@ -54,6 +54,7 @@ def expenses_menu(profile):
             manager.util.update()
         elif choice == "4":
             print("Deleting expense...")
+            manager.util.delete()
         elif choice == "0":
             break
         else:
@@ -81,6 +82,7 @@ def income_menu(profile):
             manager.util.update()
         elif choice == "4":
             print("Deleting income...")
+            manager.util.delete()
         elif choice == "0":
             break
         else:
@@ -91,7 +93,6 @@ def transaction_menu(profile):
     while True:
         print("\n=== TRANSACTIONS & REPORTS MENU ===")
         print("1. View All Transactions")
-        profile.show_transactions()
         print("2. Filter Transactions (by date/category/type)")
         print("3. Monthly Report")
         print("4. Annual Report")
