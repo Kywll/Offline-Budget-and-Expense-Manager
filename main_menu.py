@@ -168,7 +168,7 @@ def main_menu():
         print("0. Exit")
 
         choice = input("Choose an action: ").strip()
-        '''
+        
         if choice == "1":
             view_summary()
         elif choice == "2":
@@ -186,7 +186,7 @@ def main_menu():
             break
         else:
             print("Invalid choice. Try again.")
-        '''
+        
 
 main_menu()
 
