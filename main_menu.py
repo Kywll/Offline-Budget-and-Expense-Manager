@@ -152,7 +152,7 @@ def view_summary(profile):
     profile.show_income()
     profile.show_expenses()
  
-    #savings = total_income - total_expenses
+    
 
     input("\nPress Enter to return to the main menu...")
 
