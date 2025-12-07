@@ -15,4 +15,9 @@ class Util():
         self.search(object, data, target)[data] = new_data
     def sort(self):
         pass
-
+    def filter(self, object, data, target):
+        result = []
+        for i in range(len(object)):
+            if object[i][data] == target:
+                result.append(object[i])
+        return None
