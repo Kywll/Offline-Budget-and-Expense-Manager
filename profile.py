@@ -32,8 +32,8 @@ class Profile:
     
     def show_income(self):
         result = 0
-        for i in range(self.income):
-            result += self.income[i]
+        for i in range(len(self.income)):
+            result += self.income[i]["amount"]
         print("Expected Income: ", result)
     
     def show_expenses(self):
@@ -41,7 +41,7 @@ class Profile:
 
     def show_total_expenses(self):
         result = 0
-        for i in range(self.expenses):
-            result += self.expenses[i]
+        for i in range(len(self.expenses)):
+            result += self.expenses[i]["price"]
         print("Total Expenses: ", result)
 

@@ -42,19 +42,32 @@ def expenses_menu(profile):
         print("0. Back to Main Menu")
 
         choice = input("Choose an action: ").strip()
-
+        
         if choice == "1":
             print("Adding expense...")
-            manager.add_expense()
+            name = input("Enter Expense Name: ").strip()
+            price = input("Enter Expense Price: ").strip()
+            deadline = input("Enter Expense Date: ").strip()
+            priority = input("Enter Expense Priority: ").strip()
+            frequency = input("Enter Expense Frequency: ").strip()
+
+            manager.add_expense(name, price, deadline, priority, frequency)
+
         elif choice == "2":
             print("Listing expenses...")
             profile.show_expenses()
         elif choice == "3":
             print("Editing expense...")
-            manager.util.update()
+            data = input("Enter Expense Data to Change: ").strip()
+            new_data = input("Enter New Expense Data to Insert: ").strip()
+            target = input("Enter Data Target of the expense that will be updated: ").strip()
+            
+            manager.util.update(profile.expenses, data, new_data, target)
         elif choice == "4":
             print("Deleting expense...")
-            manager.util.delete()
+            data = input("Enter Expense Data to Delete: ").strip()
+            target = input("Enter Data Target of the expense that will be deleted: ").strip()
+            manager.util.delete(profile.expenses, data, target)
         elif choice == "0":
             break
         else:
@@ -104,8 +117,19 @@ def transaction_menu(profile):
         if choice == "1":
             print("Showing all transactions...")
             profile.show_transactions()
+
+            print("Adding expense...")
+            name = input("Enter Expense Name: ").strip()
+            price = input("Enter Expense Price: ").strip()
+            deadline = input("Enter Expense Date: ").strip()
+            priority = input("Enter Expense Priority: ").strip()
+            frequency = input("Enter Expense Frequency: ").strip()
+
+            manager.add_expense(name, price, deadline, priority, frequency)
+
+
         elif choice == "2":
-            print("Filtering transactions...")
+            manager.util.filter()
         elif choice == "3":
             print("Generating monthly report...")
         elif choice == "4":
@@ -170,17 +194,17 @@ def main_menu():
         choice = input("Choose an action: ").strip()
         
         if choice == "1":
-            view_summary()
+            view_summary(profile)
         elif choice == "2":
-            expenses_menu()
+            expenses_menu(profile)
         elif choice == "3":
-            income_menu()
+            income_menu(profile)
         elif choice == "4":
-            transaction_menu()
+            transaction_menu(profile)
         elif choice == "5":
-            analytics_menu()
+            analytics_menu(profile)
         elif choice == "6":
-            settings_menu()
+            settings_menu(profile)
         elif choice == "0":
             print("Goodbye!")
             break

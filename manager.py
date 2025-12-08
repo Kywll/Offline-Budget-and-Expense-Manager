@@ -26,9 +26,10 @@ class Manager():
         
         transactions["data"] = data
 
-    def add_expense(self, id, name, price, deadline, priority, frequency, is_paid=False):
-        self.profile.expenses.append({
-            "id": id,
+    def add_expense(self, name, price, deadline, priority, frequency, is_paid=False):
+        most_id = self.util.most(self.profile.expenses, "id")
+        self.profile.expenses.append({ 
+            "id": most_id["id"] +1,
             "name": name,
             "date": self.current_time,
             "price": price,
@@ -38,9 +39,10 @@ class Manager():
             "frequency": frequency
         })
 
-    def add_income(self, id, amount):
+    def add_income(self, amount):
+        most_id = self.util.most(self.profile.income, "id")
         self.profile.income.append({
-            "id": id, 
+            "id": most_id["id"] +1, 
             "expected_date": self.current_time, 
             "amount": amount, 
             "collected": False

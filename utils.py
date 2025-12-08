@@ -21,3 +21,8 @@ class Util():
             if object[i][data] == target:
                 result.append(object[i])
         return None
+    def most(self, object, data):
+        most = object[0]
+        for i in range(1, len(object)):
+            most = max(most[data], object[i][data])
+        return most
