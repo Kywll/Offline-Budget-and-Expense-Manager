@@ -24,7 +24,7 @@ class Manager():
 
     def record_transaction(self, data, transactions):
         
-        transactions["data"] = data
+        transactions["data"].append(data) 
 
     def add_expense(self, name, price, deadline, priority, frequency, is_paid=False):
         most_id = self.util.most(self.profile.expenses, "id")
@@ -39,14 +39,20 @@ class Manager():
             "frequency": frequency
         })
 
-    def add_income(self, amount):
+    def add_income(self, amount, name):
         most_id = self.util.most(self.profile.income, "id")
         self.profile.income.append({
             "id": most_id["id"] +1, 
-            "expected_date": self.current_time, 
+            "name": name,
+            "expected_date": str(self.current_time), 
             "amount": amount, 
             "collected": False
         })
+
+        with open("income.json", "w") as f:
+            json.dump({"income": self.profile.income}, f, indent=4)
+
+    print("Income added successfully!")
     
     def delete_income(self, object, data, target):
         self.util.delete(object, data, target)

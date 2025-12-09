@@ -9,6 +9,9 @@ from profile import Profile
 from manager import Manager
 
 profile = Profile()
+manager = Manager()
+
+
 
 def settings_menu():
     while True:
@@ -67,6 +70,7 @@ def expenses_menu(profile):
             print("Deleting expense...")
             data = input("Enter Expense Data to Delete: ").strip()
             target = input("Enter Data Target of the expense that will be deleted: ").strip()
+
             manager.util.delete(profile.expenses, data, target)
         elif choice == "0":
             break
@@ -86,16 +90,29 @@ def income_menu(profile):
 
         if choice == "1":
             print("Adding income...")
-            manager.add_income()
+
+            name = input("Enter Income Name: ").strip()
+            amount = int(input("Enter Income Amount: ").strip())
+
+            manager.add_income(amount, name)
         elif choice == "2":
             print("Viewing income records...")
             profile.show_income()
         elif choice == "3":
             print("Editing income...")
-            manager.util.update()
+
+            data = input("Enter Income Data to Change: ").strip()
+            new_data = input("Enter New Income Data to Insert: ").strip()
+            target = input("Enter Data Target of the Income that will be updated: ").strip()
+            
+            manager.util.update(profile.income, data, new_data, target)
         elif choice == "4":
             print("Deleting income...")
-            manager.util.delete()
+
+            data = input("Enter Income Data to Delete: ").strip()
+            target = input("Enter Data Target of the Income that will be deleted: ").strip()
+
+            manager.util.delete(profile.income, data, target)
         elif choice == "0":
             break
         else:
