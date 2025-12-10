@@ -172,6 +172,8 @@ def analytics_menu(profile):
 
         if choice == "1":
             print("Showing expense breakdown by category...")
+            profile.show_income()
+            profile.show_expenses()
         elif choice == "2":
             print("Comparing income vs expenses...")
         elif choice == "3":

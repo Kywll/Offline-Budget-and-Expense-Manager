@@ -31,13 +31,16 @@ class Manager():
         self.profile.expenses.append({ 
             "id": most_id["id"] +1,
             "name": name,
-            "date": self.current_time,
+            "date": str(self.current_time),
             "price": price,
             "deadline": deadline,
             "priority": priority,
             "paid": is_paid,
             "frequency": frequency
         })
+
+        with open("expenses.json", "w") as f:
+            json.dump({"expenses": self.profile.expenses}, f, indent= 4)
 
     def add_income(self, amount, name):
         most_id = self.util.most(self.profile.income, "id")
