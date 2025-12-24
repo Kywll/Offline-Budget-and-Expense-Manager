@@ -1,5 +1,3 @@
-
-
 import json
 
 class Profile:
@@ -13,15 +11,18 @@ class Profile:
             income_data = json.load(h)
         with open("expenses.json", "r") as j:
             expense_data = json.load(j)
+        with open("logs.json", "r") as k:
+            logs_data = json.load(k)
 
         self.budget = profile_data["profile"]["budget"]
         self.savings = profile_data["profile"]["savings"]
         self.goal = profile_data["profile"]["goal"]
 
+        self.profile = profile_data["profile"]
         self.transactions = transactions_data["transactions"]
         self.expenses = expense_data["expenses"]
         self.income = income_data["income"]
-
+        self.logs = logs_data["logs"]
 
     def show_details(self):
         print("Budget: ", self.budget)
@@ -31,11 +32,11 @@ class Profile:
     def show_transactions(self):
         print("Transactions: ", self.transactions)
 
-    
     def show_income(self):
         result = 0
         for i in range(len(self.income)):
-            result += self.income[i]["amount"]
+            if self.income[i]["collected"] == False:
+                result += self.income[i]["amount"]
         print("Expected Income: ", result)
     
     def show_expenses(self):
@@ -46,4 +47,6 @@ class Profile:
         for i in range(len(self.expenses)):
             result += self.expenses[i]["price"]
         print("Total Expenses: ", result)
-
+    
+    def show_logs(self):
+        print("Logs: ", self.logs)

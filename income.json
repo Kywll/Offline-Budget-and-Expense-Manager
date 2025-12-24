@@ -2,14 +2,14 @@
     "income": [
         {
             "id": 0,
-            "name": "Job",
-            "expected_date": "current date",
+            "name": "Sheesh",
+            "expected_date": "2025-12-23 12:07:47.056004",
             "amount": 0,
             "collected": true
         },
         {
             "id": 1,
-            "name": "Wow",
+            "name": "Waw",
             "expected_date": "2025-12-09 12:07:47.056004",
             "amount": 500,
             "collected": false

@@ -1,39 +1,8 @@
-'''
-Features:
-Budget Tracker, Pending expenses, expense priorities, savings recommended, savings goal, 
-transactions, search_sort, summary, reports, cli, utils(helper module), Analytics 
-
-'''
-
 from profile import Profile
 from manager import Manager
 
 profile = Profile()
-manager = Manager()
-
-
-
-def settings_menu():
-    while True:
-        print("\n=== SETTINGS MENU ===")
-        print("1. Change Currency")
-        print("2. Toggle Dark Mode")
-        print("3. Reset Data")
-        print("0. Back to Main Menu")
-
-        choice = input("Choose an action: ").strip()
-
-        if choice == "1":
-            print("Changing currency...")
-        elif choice == "2":
-            print("Dark mode toggled!")
-        elif choice == "3":
-            print("Resetting data...")
-        elif choice == "0":
-            break
-        else:
-            print("Invalid choice. Try again.")
-
+manager = Manager(profile)
 
 def expenses_menu(profile):
     while True:
@@ -47,31 +16,44 @@ def expenses_menu(profile):
         choice = input("Choose an action: ").strip()
         
         if choice == "1":
-            print("Adding expense...")
             name = input("Enter Expense Name: ").strip()
-            price = input("Enter Expense Price: ").strip()
+            price = float(input("Enter Expense Price: "))
             deadline = input("Enter Expense Date: ").strip()
-            priority = input("Enter Expense Priority: ").strip()
-            frequency = input("Enter Expense Frequency: ").strip()
-
-            manager.add_expense(name, price, deadline, priority, frequency)
+            
+            print("Adding expense...")
+            manager.add_expense(name, price, deadline)
 
         elif choice == "2":
             print("Listing expenses...")
             profile.show_expenses()
         elif choice == "3":
-            print("Editing expense...")
+            
+            print(profile.expenses)
+            id = int(input("Enter Expense ID to Change: "))
             data = input("Enter Expense Data to Change: ").strip()
             new_data = input("Enter New Expense Data to Insert: ").strip()
-            target = input("Enter Data Target of the expense that will be updated: ").strip()
             
-            manager.util.update(profile.expenses, data, new_data, target)
-        elif choice == "4":
-            print("Deleting expense...")
-            data = input("Enter Expense Data to Delete: ").strip()
-            target = input("Enter Data Target of the expense that will be deleted: ").strip()
+            print("Editing expense...")
+            manager.util.update(profile.expenses, "expenses.json", "expenses", data, new_data, id)
 
-            manager.util.delete(profile.expenses, data, target)
+            print(manager.util.search(profile.expenses, "id", id))
+
+            action = f"Edited expenses with id {id}. Changed {data} value into {new_data}."
+            manager.record_log(action)
+
+        elif choice == "4":
+
+            print(profile.expenses)
+            id = int(input("Enter Expense ID to Delete: "))
+
+            print("Deleting expense...")
+            manager.util.delete(profile.expenses, "expenses.json", "expenses", id)
+
+            print(manager.util.search(profile.expenses, "id", id))
+
+            action = f"Deleted expenses with id {id}."
+            manager.record_log(action)
+
         elif choice == "0":
             break
         else:
@@ -89,99 +71,39 @@ def income_menu(profile):
         choice = input("Choose an action: ").strip()
 
         if choice == "1":
-            print("Adding income...")
 
             name = input("Enter Income Name: ").strip()
-            amount = int(input("Enter Income Amount: ").strip())
+            amount = float(input("Enter Income Amount: "))
 
+            print("Adding income...")
             manager.add_income(amount, name)
         elif choice == "2":
             print("Viewing income records...")
             profile.show_income()
         elif choice == "3":
-            print("Editing income...")
-
+            print(profile.income)
+            id = int(input("Enter Income ID to Change: "))
             data = input("Enter Income Data to Change: ").strip()
             new_data = input("Enter New Income Data to Insert: ").strip()
-            target = input("Enter Data Target of the Income that will be updated: ").strip()
             
-            manager.util.update(profile.income, data, new_data, target)
+            manager.util.update(profile.income, "income.json", "income", data, new_data, id)
+
+            print("Editing income...")
+
+            print(manager.util.search(profile.income, "id", id))
+
+            action = f"Edited income with id {id}. Changed {data} value into {new_data}."
+            manager.record_log(action)
         elif choice == "4":
+            print(profile.income)
+            id = int(input("Enter Income ID to Delete: "))
+            manager.util.delete(profile.income, "income.json", "income", id)
+
             print("Deleting income...")
+            print(manager.util.search(profile.income, "id", id))
 
-            data = input("Enter Income Data to Delete: ").strip()
-            target = input("Enter Data Target of the Income that will be deleted: ").strip()
-
-            manager.util.delete(profile.income, data, target)
-        elif choice == "0":
-            break
-        else:
-            print("Invalid choice. Try again.")
-            
-
-def transaction_menu(profile):
-    while True:
-        print("\n=== TRANSACTIONS & REPORTS MENU ===")
-        print("1. View All Transactions")
-        print("2. Filter Transactions (by date/category/type)")
-        print("3. Monthly Report")
-        print("4. Annual Report")
-        print("5. Export Report")
-        print("0. Back to Main Menu")
-
-        choice = input("Choose an action: ").strip()
-
-        if choice == "1":
-            print("Showing all transactions...")
-            profile.show_transactions()
-
-            print("Adding expense...")
-            name = input("Enter Expense Name: ").strip()
-            price = input("Enter Expense Price: ").strip()
-            deadline = input("Enter Expense Date: ").strip()
-            priority = input("Enter Expense Priority: ").strip()
-            frequency = input("Enter Expense Frequency: ").strip()
-
-            manager.add_expense(name, price, deadline, priority, frequency)
-
-
-        elif choice == "2":
-            manager.util.filter()
-        elif choice == "3":
-            print("Generating monthly report...")
-        elif choice == "4":
-            print("Generating annual report...")
-        elif choice == "5":
-            print("Exporting report...")
-        elif choice == "0":
-            break
-        else:
-            print("Invalid choice. Try again.")
-
-def analytics_menu(profile):
-    while True:
-        print("\n=== ANALYTICS & INSIGHTS MENU ===")
-        print("1. Expense Breakdown (by category)")
-        print("2. Income vs Expense Comparison")
-        print("3. Monthly Trends")
-        print("4. Highest/Lowest Spending")
-        print("5. Savings Insights")
-        print("0. Back to Main Menu")
-
-        choice = input("Choose an action: ").strip()
-
-        if choice == "1":
-            print("Showing expense breakdown by category...")
-            profile.show_income()
-            profile.show_expenses()
-        elif choice == "2":
-            print("Comparing income vs expenses...")
-        elif choice == "3":
-            print("Generating monthly trends...")
-        elif choice == "4":
-            print("Analyzing highest/lowest spending...")
-        elif choice == "5":
-            print("Showing savings insights...")
+            action = f"Deleted expincome with id {id}."
+            manager.record_log(action)
         elif choice == "0":
             break
         else:
@@ -194,20 +116,26 @@ def view_summary(profile):
     profile.show_transactions()
     profile.show_income()
     profile.show_expenses()
- 
-    
+
+    input("\nPress Enter to return to the main menu...")
+
+def view_logs(profile):
+    print("\n=== LOGS OVERVIEW ===")
+
+    profile.show_logs()
 
     input("\nPress Enter to return to the main menu...")
 
 def main_menu():
     while True:
+        manager.collect_income()
+        manager.pay_expense()
+
         print("\n=== MAIN MENU ===")
         print("1. View Summary")
         print("2. Manage Expenses")
         print("3. Manage Income")
-        print("4. Transactions & Reports")
-        print("5. Analytics & Insights")
-        print("6. Settings & Utilities")
+        print("4. View Logs")
         print("0. Exit")
 
         choice = input("Choose an action: ").strip()
@@ -219,11 +147,7 @@ def main_menu():
         elif choice == "3":
             income_menu(profile)
         elif choice == "4":
-            transaction_menu(profile)
-        elif choice == "5":
-            analytics_menu(profile)
-        elif choice == "6":
-            settings_menu(profile)
+            view_logs(profile)
         elif choice == "0":
             print("Goodbye!")
             break
@@ -233,5 +157,3 @@ def main_menu():
 
 main_menu()
 
-
-manager = Manager()
